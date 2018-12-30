@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 -- |
 -- Utilities for primitive marshalling of C strings.
@@ -85,4 +83,4 @@ module Foreign.C.String (
   withCWStringLen,   -- :: String -> (CWStringLen -> IO a) -> IO a
 
   ) where
-import "base" Foreign.C.String
+import           "base" Foreign.C.String

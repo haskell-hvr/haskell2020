@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Data.Maybe (
    -- * The @Maybe@ type and operations
@@ -25,7 +23,7 @@ module Data.Maybe (
    -- $code
 
   ) where
-import "base" Data.Maybe
+import           "base" Data.Maybe
 
 {- $code
 > module Data.Maybe(

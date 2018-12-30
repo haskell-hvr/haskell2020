@@ -1,11 +1,9 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module System.Environment (
       getArgs,       -- :: IO [String]
       getProgName,   -- :: IO String
       getEnv,        -- :: String -> IO String
   ) where
-import "base" System.Environment
+import           "base" System.Environment

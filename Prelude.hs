@@ -1,8 +1,10 @@
-{-# LANGUAGE BangPatterns, NoImplicitPrelude, PackageImports, Trustworthy #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE PackageImports    #-}
+{-# LANGUAGE Trustworthy       #-}
 
 -- |
--- The Haskell 2010 Prelude: a standard module imported by default
--- into all Haskell modules.  For more documentation, see the Haskell 2010
+-- The Haskell 2020 Prelude: a standard module imported by default
+-- into all Haskell modules.  For more documentation, see the Haskell 2020
 -- Report <http://www.haskell.org/onlinereport/>.
 module Prelude (
 
@@ -35,7 +37,7 @@ module Prelude (
 
     -- *** Numeric types
     Int, Integer, Float, Double,
-    Rational,
+    Rational, Word,
 
     -- *** Numeric type classes
     Num((+), (-), (*), negate, abs, signum, fromInteger),
@@ -53,10 +55,12 @@ module Prelude (
     subtract, even, odd, gcd, lcm, (^), (^^),
     fromIntegral, realToFrac,
 
-    -- ** Monads and functors
-    Monad((>>=), (>>), return, fail),
+    -- ** Monads, applicatives and functors
     Functor(fmap),
-    mapM, mapM_, sequence, sequence_, (=<<),
+    Applicative(pure, liftA2, (<*>), (<*), (*>)),
+    Monad((>>=)),
+    MonadFail(fail),
+    (>>), return, mapM, mapM_, sequence, sequence_, (=<<),
 
     -- ** Miscellaneous functions
     id, const, (.), flip, ($), until,
@@ -121,25 +125,42 @@ module Prelude (
 
   ) where
 
+import           "base" Control.Applicative
 import qualified "base" Control.Exception.Base as New (catch)
-import "base" Control.Monad
-import "base" System.IO
-import "base" System.IO.Error (IOError, ioError, userError)
-import "base" Data.OldList hiding ( splitAt )
-import "base" Data.Either
-import "base" Data.Maybe
-import "base" Data.Tuple
+import           "this" Control.Monad
+import           "base" Data.Either
+import           "this" Data.List
+import           "base" Data.Maybe
+import           "base" Data.Tuple
+import           "base" System.IO
+import           "base" System.IO.Error        (IOError, ioError, userError)
 
-import GHC.Base (($), ($!), (&&), (.), (||), Bool(..), Char, Eq(..), Int,
-                 Ord(..), Ordering(..), String, asTypeOf, const, error, flip,
-                 id, not, otherwise, seq, undefined, until)
-import Text.Read
-import GHC.Enum
-import GHC.Num
-import GHC.Real hiding ( gcd )
-import qualified GHC.Real ( gcd )
-import GHC.Float
-import GHC.Show
+import           GHC.Base                      (Bool (..), Char, Eq (..), Int,
+                                                Ord (..), Ordering (..), String,
+                                                Word, asTypeOf, const, error,
+                                                flip, id, not, otherwise, seq,
+                                                undefined, until, ($), ($!),
+                                                (&&), (.), (||))
+import           GHC.Enum
+import           GHC.Float
+import           GHC.List                      (all, and, any, break, concat,
+                                                concatMap, cycle, drop,
+                                                dropWhile, elem, filter, foldl,
+                                                foldl1, foldr, foldr1, head,
+                                                init, iterate, last, length,
+                                                lookup, map, maximum, minimum,
+                                                notElem, null, or, product,
+                                                repeat, replicate, reverse,
+                                                scanl, scanl1, scanr, scanr1,
+                                                span, sum, tail, take,
+                                                takeWhile, unzip, unzip3, zip,
+                                                zip3, zipWith, zipWith3, (!!),
+                                                (++))
+import           GHC.Num
+import           GHC.Real                      hiding (gcd)
+import qualified GHC.Real                      (gcd)
+import           GHC.Show
+import           Text.Read
 
 -- -----------------------------------------------------------------------------
 -- Miscellaneous functions
@@ -171,26 +192,6 @@ catch = New.catch
 -- and @y@; for example @'gcd' (-3) 6@ = @3@, @'gcd' (-3) (-6)@ = @3@,
 -- @'gcd' 0 4@ = @4@.  @'gcd' 0 0@ raises a runtime error.
 gcd             :: (Integral a) => a -> a -> a
-gcd 0 0         =  error "Prelude.gcd: gcd 0 0 is undefined"
-gcd x y         = GHC.Real.gcd x y
-
--- The GHC's version of 'splitAt' is too strict in 'n' compared to
--- Haskell98/2010 version. Ticket #1182.
-
--- | 'splitAt' @n xs@ returns a tuple where first element is @xs@ prefix of
--- length @n@ and second element is the remainder of the list:
---
--- > splitAt 6 "Hello World!" == ("Hello ","World!")
--- > splitAt 3 [1,2,3,4,5] == ([1,2,3],[4,5])
--- > splitAt 1 [1,2,3] == ([1],[2,3])
--- > splitAt 3 [1,2,3] == ([1,2,3],[])
--- > splitAt 4 [1,2,3] == ([1,2,3],[])
--- > splitAt 0 [1,2,3] == ([],[1,2,3])
--- > splitAt (-1) [1,2,3] == ([],[1,2,3])
---
--- It is equivalent to @('take' n xs, 'drop' n xs)@.
--- 'splitAt' is an instance of the more general 'Data.List.genericSplitAt',
--- in which @n@ may be of any integral type.
-splitAt                :: Int -> [a] -> ([a],[a])
-splitAt n xs           =  (take n xs, drop n xs)
+gcd 0 0 =  error "Prelude.gcd: gcd 0 0 is undefined"
+gcd x y = GHC.Real.gcd x y
 

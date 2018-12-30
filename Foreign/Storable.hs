@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Foreign.Storable
         ( Storable(
@@ -14,4 +12,4 @@ module Foreign.Storable
              peek,           -- :: Ptr a             -> IO a
              poke)           -- :: Ptr a        -> a -> IO ()
   ) where
-import "base" Foreign.Storable
+import           "base" Foreign.Storable

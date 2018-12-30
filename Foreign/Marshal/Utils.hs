@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Foreign.Marshal.Utils (
   -- * General marshalling utilities
@@ -36,4 +34,4 @@ module Foreign.Marshal.Utils (
   moveBytes,     -- :: Ptr a -> Ptr a -> Int -> IO ()
 
   ) where
-import "base" Foreign.Marshal.Utils
+import           "base" Foreign.Marshal.Utils

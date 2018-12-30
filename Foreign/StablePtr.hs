@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Foreign.StablePtr
         ( -- * Stable references to Haskell values
@@ -15,7 +13,7 @@ module Foreign.StablePtr
 
           -- $cinterface
   ) where
-import "base" Foreign.StablePtr as This___
+import           "base" Foreign.StablePtr as This___
 
 -- $cinterface
 --

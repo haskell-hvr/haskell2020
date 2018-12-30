@@ -1,9 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 709
-{-# LANGUAGE Safe #-}
-#elif __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Trustworthy #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Data.Array (
     -- * Immutable non-strict arrays
@@ -32,9 +28,9 @@ module Data.Array (
     -- $code
   ) where
 
+import           "array" Data.Array hiding (array, (//))
 import qualified "array" Data.Array as Array
-import "array" Data.Array hiding (array, (//))
-import "base" Data.Ix
+import           "base" Data.Ix
 
 {- $intro
 Haskell provides indexable /arrays/, which may be thought of as functions

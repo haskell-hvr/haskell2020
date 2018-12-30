@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Data.Char (
     -- * Characters and strings
@@ -41,4 +39,4 @@ module Data.Char (
     , lexLitChar        -- :: ReadS String
     , readLitChar       -- :: ReadS Char
   ) where
-import "base" Data.Char
+import           "base" Data.Char

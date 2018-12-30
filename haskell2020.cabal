@@ -1,44 +1,49 @@
-name:           haskell2010
-version:        1.1.2.1
--- NOTE: Don't forget to update ./changelog.md
-license:        BSD3
-license-file:   LICENSE
-maintainer:     libraries@haskell.org
-bug-reports:    http://ghc.haskell.org/trac/ghc/newticket?component=libraries/haskell2010
-synopsis:       Compatibility with Haskell 2010
-category:       Haskell2010, Prelude
-homepage:       http://www.haskell.org/onlinereport/haskell2010/
-build-type:     Simple
-Cabal-Version:  >=1.10
-description:
-    This package provides exactly the library modules defined by
-    the <http://www.haskell.org/onlinereport/haskell2010/ Haskell 2010 standard>.
+Cabal-Version:  2.2
+name:           haskell2020
+version:        0.1.0.0
 
-extra-source-files:
-    changelog.md
+license:        BSD-3-Clause
+license-file:   LICENSE
+maintainer:     hvr@gnu.org
+synopsis:       Haskell 2020[draft] Standard Library
+category:       Haskell2020, Prelude
+description:
+    This package provides an implementation of library modules to be defined by the future Haskell2020 Library Report.
+    .
+    __NOTE__: The Haskell2020 Library Report has not yet been released and therefore this implementation is merely a technical preview and subject to change.
+    .
+    == Changes relative to Haskell2010
+    .
+    * [Remove Show/Eq superclasses of Num](https://mail.haskell.org/pipermail/libraries/2011-September/016699.html)
+    * [Remove Num superclass of Bits](https://mail.haskell.org/pipermail/libraries/2011-October/016899.html)
+    * [Add Bits instance for Bool](https://ghc.haskell.org/trac/ghc/ticket/7424)
+    * Add 'Monad' instance for @(->)@ and 'Either'; add 'Functor' instance for @(,)@
+    * [Export Word from Prelude](https://mail.haskell.org/pipermail/libraries/2014-August/023491.html)
+    * [Functor-Applicative-Monad proposal (AMP)](https://wiki.haskell.org/Functor-Applicative-Monad_Proposal)
+    * [Monad of no return/>> proposal (MRP)](https://ghc.haskell.org/trac/ghc/wiki/Proposal/MonadOfNoReturn)
+    * [MonadFail proposal (MFP)](https://prime.haskell.org/wiki/Libraries/Proposals/MonadFail)
 
 source-repository head
     type:     git
-    location: http://git.haskell.org/packages/haskell2010.git
+    location: http://github.com/hvr/haskell2020.git
 
 Library
     default-language: Haskell2010
     other-extensions:
         BangPatterns
-        CPP
         NoImplicitPrelude
         Safe
         Trustworthy
 
     build-depends:
-        array >= 0.5 && < 0.6,
-        base  >= 4.8 && < 4.9
+      , array ^>= 0.5.3.0
+      , base  ^>= 4.12.0.0
 
     -- this hack adds a dependency on ghc-prim for Haddock.  The GHC
     -- build system doesn't seem to track transitive dependencies when
     -- running Haddock, and if we don't do this then Haddock can't
     -- find the docs for things defined in ghc-prim.
-    build-depends: ghc-prim >= 0.3.1 && < 0.4
+    -- build-depends: ghc-prim >= 0.3.1 && < 0.4
 
     -- haskell2010 is a "hidden" package
     exposed: False
@@ -54,6 +59,7 @@ Library
         -- http://www.haskell.org/onlinereport/haskell2010/haskellpa2.html
         --
         -- chapter [13..23]
+        Control.Applicative
         Control.Monad
         Data.Array
         Data.Bits

@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 {- |
 The module "Foreign.Marshal.Array" provides operations for marshalling Haskell
@@ -64,13 +62,9 @@ module Foreign.Marshal.Array (
   --
   advancePtr,     -- :: Storable a => Ptr a -> Int -> Ptr a
   ) where
+
+import           "base" Foreign               hiding (peekArray)
 import qualified "base" Foreign.Marshal.Array as Base
-import "base" Foreign.Marshal.Array hiding (peekArray)
-#if __GLASGOW_HASKELL__ >= 701 && __GLASGOW_HASKELL__ < 709
-import "base" Foreign.Safe hiding (peekArray)
-#else
-import "base" Foreign hiding (peekArray)
-#endif
 
 -- |Convert an array of given length into a Haskell list.
 --

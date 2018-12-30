@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Numeric (
 
@@ -45,4 +43,4 @@ module Numeric (
 
         ) where
 
-import "base" Numeric
+import           "base" Numeric

@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module System.IO.Error (
       -- * I\/O errors
@@ -52,9 +50,9 @@ module System.IO.Error (
   ) where
 
 import qualified "base" Control.Exception as Exception
-import "base" System.IO.Error hiding (IOError)
-import qualified "base" System.IO.Error as Base
-import Prelude hiding (IOError,catch)
+import           Prelude                  hiding (IOError, catch)
+import           "base" System.IO.Error   hiding (IOError)
+import qualified "base" System.IO.Error   as Base
 
 -- | Errors of type 'IOError' are used by the 'IO' monad.  This is an
 -- abstract type; the module "System.IO.Error" provides functions to

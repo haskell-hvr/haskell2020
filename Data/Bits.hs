@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 -- |
 -- This module defines bitwise operations for signed and unsigned
@@ -24,4 +22,4 @@ module Data.Bits (
     rotateL, rotateR   -- :: a -> Int -> a
   )
   ) where
-import "base" Data.Bits
+import           "base" Data.Bits

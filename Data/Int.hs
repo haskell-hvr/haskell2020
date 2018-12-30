@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Data.Int (
         -- * Signed integer types
@@ -12,7 +10,7 @@ module Data.Int (
         Int8, Int16, Int32, Int64,
 
   ) where
-import "base" Data.Int
+import           "base" Data.Int
 
 -- SDM: removed after 'Prelude.fromIntegral':
 -- ..., which is specialized for all the common cases

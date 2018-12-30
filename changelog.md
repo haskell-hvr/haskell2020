@@ -1,17 +1,6 @@
-# Changelog for [`haskell2010` package](http://hackage.haskell.org/package/haskell2010)
+# Changelog for [`haskell2020` package](http://hackage.haskell.org/package/haskell2020)
 
-## 1.1.2.1  *TBA*
+## 0.1.0.0
 
-  - Bundled with GHC 7.10.1
+  - First public release
 
-## 1.1.2.0  *Mar 2014*
-
-  - Bundled with GHC 7.8.1
-
-  - Leaks new `Bits Bool` instance (deviation from H2010)
-
-  - Remove NHC98-specific code
-
-  - Adapt to changes in GHC 7.8's core-libraries
-
-  - Update to Cabal format 1.10

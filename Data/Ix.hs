@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Data.Ix (
     -- * The 'Ix' class
@@ -16,7 +14,7 @@ module Data.Ix (
 
     -- $derived
   ) where
-import "base" Data.Ix
+import           "base" Data.Ix
 
 {- $derived
 It is possible to derive an instance of @Ix@ automatically, using

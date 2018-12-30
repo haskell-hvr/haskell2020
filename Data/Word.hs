@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Data.Word (
         -- * Unsigned integral types
@@ -12,7 +10,7 @@ module Data.Word (
         Word8, Word16, Word32, Word64,
 
   ) where
-import "base" Data.Word
+import           "base" Data.Word
 
 -- SDM: removed after 'Prelude.fromIntegral':
 -- ..., which is specialized for all the common cases

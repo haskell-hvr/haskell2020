@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Data.Complex (
         -- * Rectangular form
@@ -22,7 +20,7 @@ module Data.Complex (
 
         -- $code
   ) where
-import "base" Data.Complex
+import           "base" Data.Complex
 
 {- $code
 > module Data.Complex(Complex((:+)), realPart, imagPart, conjugate, mkPolar,

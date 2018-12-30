@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module System.IO (
     -- * The IO monad
@@ -129,7 +127,7 @@ module System.IO (
 
   ) where
 
-import "base" System.IO hiding (openFile, hWaitForInput)
+import           "base" System.IO hiding (hWaitForInput, openFile)
 import qualified "base" System.IO as Base
 
 -- $locking

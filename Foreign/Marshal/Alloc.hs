@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 {- |
 The module "Foreign.Marshal.Alloc" provides operations to allocate and
@@ -44,4 +42,4 @@ module Foreign.Marshal.Alloc (
   free,         -- :: Ptr a -> IO ()
   finalizerFree -- :: FinalizerPtr a
   ) where
-import "base" Foreign.Marshal.Alloc
+import           "base" Foreign.Marshal.Alloc

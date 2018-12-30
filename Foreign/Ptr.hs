@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 -- | The module "Foreign.Ptr" provides typed pointers to foreign
 -- entities.  We distinguish two kinds of pointers: pointers to data
@@ -40,4 +38,4 @@ module Foreign.Ptr (
     wordPtrToPtr
 
   ) where
-import "base" Foreign.Ptr
+import           "base" Foreign.Ptr

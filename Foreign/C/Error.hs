@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 -- | The module "Foreign.C.Error" facilitates C-specific error
 -- handling of @errno@.
@@ -86,4 +84,4 @@ module Foreign.C.Error (
 
   ) where
 
-import "base" Foreign.C.Error
+import           "base" Foreign.C.Error

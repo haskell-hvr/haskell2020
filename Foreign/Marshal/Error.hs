@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Foreign.Marshal.Error (
   throwIf,       -- :: (a -> Bool) -> (a -> String) -> IO a       -> IO a
@@ -17,7 +15,7 @@ module Foreign.Marshal.Error (
   void           -- IO a -> IO ()
 
   ) where
-import "base" Foreign.Marshal.Error hiding (void)
+import           "base" Foreign.Marshal.Error hiding (void)
 
 -- |Discard the return value of an 'IO' action
 --

@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Foreign.C.Types
         ( -- * Representations of C types
@@ -38,16 +36,14 @@ module Foreign.C.Types
           -- 'Prelude.RealFrac' and 'Prelude.RealFloat'.
         , CFloat,  CDouble
 -- GHC doesn't support CLDouble yet
-#ifdef HASKELL_REPORT
-        , CLDouble
-#endif
+--      , CLDouble
           -- ** Other types
 
           -- Instances of: Eq and Storable
         , CFile,        CFpos,     CJmpBuf
 
   ) where
-import "base" Foreign.C.Types
+import           "base" Foreign.C.Types
 
 {- $ctypes
 

@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module System.Exit (
       ExitCode(ExitSuccess,ExitFailure)
@@ -9,7 +7,7 @@ module System.Exit (
     , exitFailure   -- :: IO a
     , exitSuccess   -- :: IO a
   ) where
-import "base" System.Exit hiding (exitWith)
+import           "base" System.Exit hiding (exitWith)
 import qualified "base" System.Exit as Base
 
 -- SDM: use the Haskell 98 docs for exitWith, since the base docs talk

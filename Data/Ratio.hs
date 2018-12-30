@@ -1,7 +1,5 @@
-{-# LANGUAGE CPP, PackageImports #-}
-#if __GLASGOW_HASKELL__ >= 701
-{-# LANGUAGE Safe #-}
-#endif
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE Safe           #-}
 
 module Data.Ratio (
       Ratio
@@ -15,7 +13,7 @@ module Data.Ratio (
 
     -- $code
   ) where
-import "base" Data.Ratio
+import           "base" Data.Ratio
 
 {- $code
 > module  Data.Ratio (
