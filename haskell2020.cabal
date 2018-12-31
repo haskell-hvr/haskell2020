@@ -50,6 +50,7 @@ Library
 
     -- The modules below are listed in the order they occur in the
     -- "Haskell 2010 Language Report" table of contents.
+    hs-source-dirs: src
     exposed-modules:
         -- chapter 9 "Standard Prelude"
         -- http://www.haskell.org/onlinereport/haskell2010/haskellch9.html
