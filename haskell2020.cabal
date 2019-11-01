@@ -37,7 +37,7 @@ Library
 
     build-depends:
       , array ^>= 0.5.3.0
-      , base  ^>= 4.12.0.0
+      , base  ^>= 4.12.0.0 || ^>= 4.13.0.0
 
     -- this hack adds a dependency on ghc-prim for Haddock.  The GHC
     -- build system doesn't seem to track transitive dependencies when
