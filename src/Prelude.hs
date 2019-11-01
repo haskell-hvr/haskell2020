@@ -143,19 +143,6 @@ import           GHC.Base                      (Bool (..), Char, Eq (..), Int,
                                                 (&&), (.), (||))
 import           GHC.Enum
 import           GHC.Float
-import           GHC.List                      (all, and, any, break, concat,
-                                                concatMap, cycle, drop,
-                                                dropWhile, elem, filter, foldl,
-                                                foldl1, foldr, foldr1, head,
-                                                init, iterate, last, length,
-                                                lookup, map, maximum, minimum,
-                                                notElem, null, or, product,
-                                                repeat, replicate, reverse,
-                                                scanl, scanl1, scanr, scanr1,
-                                                span, sum, tail, take,
-                                                takeWhile, unzip, unzip3, zip,
-                                                zip3, zipWith, zipWith3, (!!),
-                                                (++))
 import           GHC.Num
 import           GHC.Real                      hiding (gcd)
 import qualified GHC.Real                      (gcd)
